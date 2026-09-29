@@ -1,4 +1,4 @@
-const C='rexquest-v22';
+const C='rexquest-v23';
 const FILES=['./','index.html','manifest.webmanifest','icon-v21-180.png','icon-v21-192.png','icon-v21-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(FILES)));self.skipWaiting();});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))));self.clients.claim();});
